@@ -1,0 +1,39 @@
+body{
+    font-family: Arial;
+    background:#f4f6f8;
+}
+
+.container{
+    width:900px;
+    margin:auto;
+    display:flex;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.left{
+    width:35%;
+    background:#1e293b;
+    color:white;
+    padding:30px;
+}
+
+.right{
+    width:65%;
+    background:white;
+    padding:30px;
+}
+
+.avatar{
+    width:150px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+.section{
+    margin-top:25px;
+}
+
+.section h2{
+    border-bottom:2px solid #ddd;
+    padding-bottom:5px;
+}
