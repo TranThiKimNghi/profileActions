@@ -2,11 +2,10 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  docker:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -21,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest ./backend
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest
