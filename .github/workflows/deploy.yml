@@ -5,8 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest ./backend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest ./Nghi/Nghi
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/springboot-profile:latest
