@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Server
 
 on:
   push:
@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Triển khai lên DevOps Classroom
         run: |
           REPO="kimnghi/springboot-profile"
-          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${{ secrets.DEPLOY_URL }}?repo=$REPO&tag=latest")
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST "${{ secrets.DEPLOY_URL }}?repo=$REPO&tag=latest")
           BODY=$(echo "$RESPONSE" | sed "$d")
           CODE=$(echo "$RESPONSE" | tail -n1)
 
